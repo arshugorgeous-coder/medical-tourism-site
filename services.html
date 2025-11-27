@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Medi in India</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #0d9488;
+            --accent-color: #f59e0b;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        .header {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color);
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a365d 0%, #0d9488 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-content {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-cta {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .service-cta:hover {
+            background-color: #1e40af;
+        }
+
+        .process-section {
+            background: var(--light-color);
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 60px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .step-description {
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/50x50?text=M+I" alt="Medi in India Logo">
+                    <span class="logo-text">MEDI IN INDIA</span>
+                </div>
+                
+<ul class="nav-menu">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About us</a></li>
+    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
+    <li class="nav-item"><a href="partner.html" class="nav-link">Partner with us</a></li>
+    <li class="nav-item"><a href="privacy.html" class="nav-link">Privacy policy</a></li>
+    <li class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></li>
+</ul>
+                
+                <a href="#" class="cta-button">Get a free quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1 class="page-title">Our Services</h1>
+        <p class="page-subtitle">Comprehensive medical tourism solutions tailored to your unique healthcare needs</p>
+    </section>
+
+    <!-- Services Content -->
+    <section class="services-content">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Cosmetic Surgery -->
+                <div class="service-card">
+                    <div class="service-image">Cosmetic Surgery</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cosmetic Surgery</h3>
+                        <p class="service-description">
+                            Transform your appearance with world-class cosmetic procedures performed by internationally recognized surgeons.
+                        </p>
+                        <ul class="service-features">
+                            <li>Plastic Surgery & Reconstructive Surgery</li>
+                            <li>Facelift & Neck Lift</li>
+                            <li>Breast Augmentation & Reduction</li>
+                            <li>Liposuction & Body Contouring</li>
+                            <li>Rhinoplasty & Otoplasty</li>
+                        </ul>
+                        <div class="service-price">Starting from $2,500</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Dental Tourism -->
+                <div class="service-card">
+                    <div class="service-image">Dental Tourism</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Dental Tourism</h3>
+                        <p class="service-description">
+                            Premium dental care at a fraction of the cost, with state-of-the-art facilities and internationally trained dentists.
+                        </p>
+                        <ul class="service-features">
+                            <li>Dental Implants & Crowns</li>
+                            <li>Teeth Whitening & Veneers</li>
+                            <li>Root Canal Treatment</li>
+                            <li>Orthodontics & Braces</li>
+                            <li>Complete Dentures</li>
+                        </ul>
+                        <div class="service-price">Starting from $300</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Cardiology -->
+                <div class="service-card">
+                    <div class="service-image">Cardiology</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cardiology</h3>
+                        <p class="service-description">
+                            Advanced cardiac care with cutting-edge technology and internationally acclaimed cardiologists.
+                        </p>
+                        <ul class="service-features">
+                            <li>Heart Surgery & Bypass</li>
+                            <li>Angioplasty & Stenting</li>
+                            <li>Valve Replacement</li>
+                            <li>Cardiac Rehabilitation</li>
+                            <li>Diagnostic Cardiology</li>
+                        </ul>
+                        <div class="service-price">Starting from $5,000</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Orthopedics -->
+                <div class="service-card">
+                    <div class="service-image">Orthopedics</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Orthopedics</h3>
+                        <p class="service-description">
+                            Comprehensive orthopedic solutions including joint replacements and sports injury treatments.
+                        </p>
+                        <ul class="service-features">
+                            <li>Joint Replacement (Hip, Knee)</li>
+                            <li>Spinal Surgery</li>
+                            <li>Sports Medicine</li>
+                            <li>Arthroscopy</li>
+                            <li>Bone & Joint Reconstruction</li>
+                        </ul>
+                        <div class="service-price">Starting from $4,000</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Cancer Treatment -->
+                <div class="service-card">
+                    <div class="service-image">Cancer Treatment</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cancer Treatment</h3>
+                        <p class="service-description">
+                            Advanced oncology services with personalized treatment plans and cutting-edge therapies.
+                        </p>
+                        <ul class="service-features">
+                            <li>Chemotherapy & Radiation</li>
+                            <li>Immunotherapy</li>
+                            <li>Targeted Therapy</li>
+                            <li>Robotic Surgery</li>
+                            <li>Stem Cell Transplant</li>
+                        </ul>
+                        <div class="service-price">Starting from $8,000</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Wellness & Rehabilitation -->
+                <div class="service-card">
+                    <div class="service-image">Wellness & Rehabilitation</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Wellness & Rehabilitation</h3>
+                        <p class="service-description">
+                            Comprehensive recovery programs combining modern medicine with traditional healing practices.
+                        </p>
+                        <ul class="service-features">
+                            <li>Post-Surgery Rehabilitation</li>
+                            <li>Physiotherapy & Occupational Therapy</li>
+                            <li>Yoga & Meditation Programs</li>
+                            <li>Nutritional Counseling</li>
+                            <li>Stress Management</li>
+                        </ul>
+                        <div class="service-price">Starting from $1,500</div>
+                        <a href="#" class="service-cta">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Initial Consultation</h3>
+                    <p class="step-description">Submit your medical records and requirements for expert evaluation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Treatment Plan</h3>
+                    <p class="step-description">Receive a personalized treatment plan with cost estimates.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Travel Arrangements</h3>
+                    <p class="step-description">We handle visa, flights, and accommodation for your stay.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Medical Care</h3>
+                    <p class="step-description">Receive world-class treatment at our partner hospitals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Recovery & Follow-up</h3>
+                    <p class="step-description">Post-treatment care and follow-up support for your recovery.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Return Home</h3>
+                    <p class="step-description">Safe return home with complete medical records and care instructions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Medi in India</h3>
+                    <p>Your trusted partner for medical tourism in India, providing access to world-class healthcare at affordable prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>Email: info@mediinindia.com</li>
+                        <li>Phone: +91 98765 43210</li>
+                        <li>Address: Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi in India - Exceptional Affordable Healthcare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a; /* Deep Blue */
+            --primary-teal: #0d9488; /* Teal */
+            --accent-gold: #d97706; /* Gold */
+            --light-bg: #f9fafb; /* Light Gray Background */
+            --dark-text: #111827; /* Dark Text */
+            --light-text: #f3f4f6; /* Light Text */
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--white);
+            /* Subtle gradient background */
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-teal);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-teal);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-teal) 100%);
+            color: var(--light-text);
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,100 0,100" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-title .accent-blue {
+            color: var(--white);
+        }
+
+        .hero-title .accent-gold {
+            color: var(--accent-gold);
+        }
+
+        .hero-title .accent-teal {
+            color: #a7f3d0; /* Light teal */
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: var(--shadow-lg);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            box-shadow: var(--shadow-lg), 0 0 0 3px rgba(13, 148, 136, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+            font-size: 1.25rem;
+        }
+
+        .secondary-cta {
+            background-color: var(--white);
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .secondary-cta:hover {
+            background-color: var(--primary-teal);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 5rem 1rem;
+            background-color: var(--white);
+        }
+
+        .section-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .text-content {
+            flex: 1 1 300px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-teal));
+            border-radius: 2px;
+        }
+
+        .section-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--primary-teal);
+        }
+
+        .video-container {
+            flex: 1 1 300px;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            aspect-ratio: 16/9; /* Maintain 16:9 aspect ratio */
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-teal));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background-color: #f59e0b;
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 14px solid var(--white);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 4px; /* Adjust for visual centering */
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+            font-size: 0.75rem;
+        }
+
+        .more-videos {
+            background-color: var(--primary-teal);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+        }
+
+        .video-controls-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .video-icon {
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-menu {
+                display: none; /* Hide for now, can be replaced with hamburger menu */
+            }
+            
+            .section-content {
+                flex-direction: column;
+            }
+            
+            .video-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .search-input {
+                padding: 0.75rem 1rem 0.75rem 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">MI</div>
+                    <span class="logo-text">MEDI IN INDIA</span>
+                </a>
+                
+<ul class="nav-menu">
+    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About us</a></li>
+    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog</a></li>
+    <li class="nav-item"><a href="partner.html" class="nav-link">Partner with us</a></li>
+    <li class="nav-item"><a href="privacy.html" class="nav-link">Privacy policy</a></li>
+    <li class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></li>
+</ul>                
+                <a href="#" class="cta-button">Get a free quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="accent-blue">Exceptional.</span>
+                <span class="accent-gold">Affordable.</span>
+                <span class="accent-teal">Healthcare.</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Are you facing high treatment costs, long wait times, or a lack of super-specialty treatments in your home country?
+            </p>
+            
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search Treatments...">
+            </div>
+            
+            <a href="#" class="secondary-cta">Get a free second opinion</a>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-content">
+                <div class="text-content">
+                    <h2 class="section-title">Your Trusted Partner in Medical Tourism</h2>
+                    <p class="section-text">
+                        We understand the challenges of accessing quality healthcare. At <span class="highlight">Medi in India</span>, we offer convenient and cost-effective solutions through medical tourism.
+                    </p>
+                    <p class="section-text">
+                        We partner with renowned hospitals across India, providing you with access to advanced procedures, experienced specialists, and exceptional patient care.
+                    </p>
+                </div>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="video-title">Medical Tourism in India</div>
+                        <div class="video-subtitle">Overcoming Language Barriers</div>
+                        <div class="play-button">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="video-controls">
+                            <button class="more-videos">MORE VIDEOS</button>
+                            <div class="video-controls-icons">
+                                <span class="video-icon">▶</span>
+                                <span class="video-icon">⏸️</span>
+                                <span class="video-icon">🔊</span>
+                                <span class="video-icon">📺</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
